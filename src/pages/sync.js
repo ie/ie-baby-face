@@ -38,7 +38,7 @@ class Sync extends Component {
 
   setStateFromSnapshot(snapshot) {
     snapshot.forEach((doc) => {
-      this.setState({ synced: [...this.state.synced, doc.data()], totalSynced: this.state.totalSynced+1 });
+      this.setState({ synced: [...this.state.synced, doc.data()], totalSynced: this.state.totalSynced + 1 });
     });
 
     const files = this.props.data.allFile.edges;
@@ -56,13 +56,13 @@ class Sync extends Component {
           fetch(data.src).then((response) => response.blob()).then((blob) => {
             const reader = new FileReader();
             reader.readAsDataURL(blob);
-            reader.onloadend = function() {
+            reader.onloadend = function () {
               const encodedImage = reader.result;
               db.collection('photos').add({
                 name: photo.name,
                 photo: encodedImage
               }).then(() => {
-                this.setState({ totalSynced: this.state.totalSynced+1 });
+                this.setState({ totalSynced: this.state.totalSynced + 1 });
               });
             }.bind(this);
           });
@@ -84,7 +84,7 @@ class Sync extends Component {
         <h2>Total Synced: {this.state.totalSynced}</h2>
         <ImageGrid>
           {this.state.synced.map((photo, index) => {
-            return (<Image key={index} src={photo.photo} alt={photo.name}/>);
+            return (<Image key={index} src={photo.photo} alt={photo.name} />);
           })}
         </ImageGrid>
       </Layout>
