@@ -22,7 +22,7 @@ const WhiteContainerFull = styled(WhiteContainer)`
   ${above.md`
     width: 100vw;
     align-items: center;
-  `}
+  `};
 `
 
 const Heading = styled.h3`

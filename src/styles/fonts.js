@@ -19,7 +19,6 @@ import GothamBookItalicTTF from '../fonts/Gotham-BookItalic.ttf'
 import GothamBookItalicWOFF from '../fonts/Gotham-BookItalic.woff'
 import GothamBookItalicWOFF2 from '../fonts/Gotham-BookItalic.woff2'
 
-
 export default {
   GothamBoldEOT,
   GothamBoldSVG,
@@ -40,5 +39,5 @@ export default {
   GothamBookItalicSVG,
   GothamBookItalicTTF,
   GothamBookItalicWOFF,
-  GothamBookItalicWOFF2
+  GothamBookItalicWOFF2,
 }

@@ -18,7 +18,7 @@ import { BaseLink, WhiteContainer, BlackContainer } from '../styles/global'
 
 class GuessPage extends Component {
   constructor() {
-    super();
+    super()
     this.state = {
       names: [],
       guesses: [],
@@ -26,116 +26,140 @@ class GuessPage extends Component {
       currentPhoto: 0,
       loaded: false,
       loading: true,
-      finished: false
-    };
+      finished: false,
+    }
   }
 
   shuffle(arr) {
     return arr
       .map(a => [Math.random(), a])
       .sort((a, b) => a[0] - b[0])
-      .map(a => a[1]);
+      .map(a => a[1])
   }
 
   componentDidMount() {
     if (this.props.name === '') {
-      return navigate('/play');
+      return navigate('/play')
     }
 
-    db.collection('photos').get().then((snapshot) => {
-      snapshot.forEach((doc) => {
-        this.setState((prevState) => ({
-          names: [...prevState.names, doc.data().name],
-          photos: [...prevState.photos, {
-            id: doc.id,
-            photo: doc.data().photo,
-            guessed: false
-          }]
-        }));
+    db.collection('photos')
+      .get()
+      .then(snapshot => {
+        snapshot.forEach(doc => {
+          this.setState(prevState => ({
+            names: [...prevState.names, doc.data().name],
+            photos: [
+              ...prevState.photos,
+              {
+                id: doc.id,
+                photo: doc.data().photo,
+                guessed: false,
+              },
+            ],
+          }))
+        })
       })
-    }).then(() => {
-      this.setState((prevState) => ({
-        loaded: true,
-        names: prevState.names.sort(),
-        photos: this.shuffle(prevState.photos)
-      }));
-    });
+      .then(() => {
+        this.setState(prevState => ({
+          loaded: true,
+          names: prevState.names.sort(),
+          photos: this.shuffle(prevState.photos),
+        }))
+      })
   }
 
   hasFinished() {
-    return this.state.guesses.length === this.state.names.length;
+    return this.state.guesses.length === this.state.names.length
   }
 
   back(e) {
-    const { currentPhoto } = this.state;
+    const { currentPhoto } = this.state
 
-    e.preventDefault();
+    e.preventDefault()
 
     if (currentPhoto > 0) {
-      this.setState((prevState) => ({ currentPhoto: prevState.currentPhoto-1 }));
+      this.setState(prevState => ({ currentPhoto: prevState.currentPhoto - 1 }))
     } else {
-      this.setState((prevState) => ({ currentPhoto: this.state.photos.length-1 }));
+      this.setState(prevState => ({
+        currentPhoto: this.state.photos.length - 1,
+      }))
     }
   }
 
   next(e) {
-    const { currentPhoto } = this.state;
+    const { currentPhoto } = this.state
 
-    if (e) e.preventDefault();
+    if (e) e.preventDefault()
 
-    if (currentPhoto < this.state.photos.length-1) {
-      this.setState((prevState) => ({ currentPhoto: prevState.currentPhoto+1 }));
+    if (currentPhoto < this.state.photos.length - 1) {
+      this.setState(prevState => ({ currentPhoto: prevState.currentPhoto + 1 }))
     } else {
-      this.setState((prevState) => ({ currentPhoto: 0 }));
+      this.setState(prevState => ({ currentPhoto: 0 }))
     }
   }
 
   guess(value) {
     const guess = {
       photo: this.state.photos[this.state.currentPhoto].id,
-      name: value
-    };
+      name: value,
+    }
 
-    const photos = this.state.photos;
-    photos[this.state.currentPhoto].guessed = true;
+    const photos = this.state.photos
+    photos[this.state.currentPhoto].guessed = true
 
-    this.setState((prevState) => ({
+    this.setState(prevState => ({
       guesses: [...prevState.guesses, guess],
       photos: photos,
-      finished: prevState.guesses.length === prevState.photos.length-1
-    }));
+      finished: prevState.guesses.length === prevState.photos.length - 1,
+    }))
 
-    db.collection('guesses').doc(this.props.documentId).collection('guesses').add(guess).then(() => {
-      this.next();
-    });
+    db.collection('guesses')
+      .doc(this.props.documentId)
+      .collection('guesses')
+      .add(guess)
+      .then(() => {
+        this.next()
+      })
   }
 
   isCurrentPhoto(name) {
-    const currentPhoto = this.state.photos[this.state.currentPhoto];
-    const guess = this.state.guesses.filter((guess) => guess.name === name)[0];
+    const currentPhoto = this.state.photos[this.state.currentPhoto]
+    const guess = this.state.guesses.filter(guess => guess.name === name)[0]
 
     if (guess && currentPhoto) {
-      return currentPhoto.id === guess.photo;
+      return currentPhoto.id === guess.photo
     }
 
-    return false;
+    return false
   }
 
   render() {
-    const { photos, guesses, currentPhoto, loaded, finished } = this.state;
-    const current = photos[currentPhoto];
+    const { photos, guesses, currentPhoto, loaded, finished } = this.state
+    const current = photos[currentPhoto]
 
     return (
       <Layout>
         <Main>
-          <Preloader loading={this.state.loading} loaded={this.state.loaded}/>
-          <Moustache/>
-          {loaded ? <BackLink to="/guess" onClick={(e) => this.back(e)}>Back</BackLink> : null}
-          {loaded && !this.hasFinished() ? <NextLink to="/guess" onClick={(e) => this.next(e)}>Next</NextLink> : null}
-          {loaded && this.hasFinished() ? <SubmitLink to="/thanks">Submit</SubmitLink> : null}
+          <Preloader loading={this.state.loading} loaded={this.state.loaded} />
+          <Moustache />
+          {loaded ? (
+            <BackLink to="/guess" onClick={e => this.back(e)}>
+              Back
+            </BackLink>
+          ) : null}
+          {loaded && !this.hasFinished() ? (
+            <NextLink to="/guess" onClick={e => this.next(e)}>
+              Next
+            </NextLink>
+          ) : null}
+          {loaded && this.hasFinished() ? (
+            <SubmitLink to="/thanks">Submit</SubmitLink>
+          ) : null}
           <WhiteContainerCenter>
             <ImageContainer>
-              {loaded && !finished ? (<Image greyscale={current.guessed} src={current.photo}/>) : null}
+              {loaded && !finished ? (
+                <Image greyscale={current.guessed} src={current.photo} />
+              ) : null}
             </ImageContainer>
           </WhiteContainerCenter>
           <BlackContainerCenter>
@@ -143,9 +167,21 @@ class GuessPage extends Component {
               {this.state.names.map((name, index) => {
                 return (
                   <NamesListItem key={index}>
-                    <GuessButton className={ classNames({ 'active': this.isCurrentPhoto(name), 'unselectable': current.guessed}) } disabled={current.guessed || guesses.filter((guess) => guess.name === name).length} onClick={() => this.guess(name)}>{ name }</GuessButton>
+                    <GuessButton
+                      className={classNames({
+                        active: this.isCurrentPhoto(name),
+                        unselectable: current.guessed,
+                      })}
+                      disabled={
+                        current.guessed ||
+                        guesses.filter(guess => guess.name === name).length
+                      }
+                      onClick={() => this.guess(name)}
+                    >
+                      {name}
+                    </GuessButton>
                   </NamesListItem>
-                );
+                )
               })}
             </NamesList>
           </BlackContainerCenter>
@@ -155,17 +191,14 @@ class GuessPage extends Component {
   }
 }
 
-
 const mapStateToProps = state => {
   return {
     name: state.name,
-    documentId: state.documentId
+    documentId: state.documentId,
   }
 }
 
-export default connect(
-  mapStateToProps
-)(GuessPage)
+export default connect(mapStateToProps)(GuessPage)
 
 const WhiteContainerCenter = styled(WhiteContainer)`
   align-items: center;
@@ -174,7 +207,7 @@ const WhiteContainerCenter = styled(WhiteContainer)`
   ${above.md`
     align-items: center;
     justify-content: center;
-  `}
+  `};
 `
 
 const BlackContainerCenter = styled(BlackContainer)`
@@ -184,14 +217,13 @@ const BlackContainerCenter = styled(BlackContainer)`
   ${above.md`
     align-items: center;
     justify-content: center;
-  `}
+  `};
 `
 
 const NextLink = styled(BaseLink)`
   bottom: 0;
   color: ${colours.white};
   right: 0;
-
 `
 
 const SubmitLink = styled(NextLink)``
@@ -201,10 +233,9 @@ const BackLink = styled(BaseLink)`
   color: ${colours.white};
   left: 0;
 
-
   ${above.md`
     color: ${colours.black};
-  `}
+  `};
 `
 
 const NamesList = styled.ul`
@@ -215,7 +246,7 @@ const NamesList = styled.ul`
   ${above.md`
     columns: 2;
     width: 66%;
-  `}
+  `};
 `
 
 const NamesListItem = styled.li`
@@ -226,7 +257,7 @@ const NamesListItem = styled.li`
   ${above.md`
     line-height: 1.75;
     text-align: left;
-  `}
+  `};
 `
 
 const GuessButton = styled.button`
@@ -234,7 +265,7 @@ const GuessButton = styled.button`
   border: none;
   color: currentColor;
   font-family: 'Gotham Book', sans-serif;
-  font-size: .8rem;
+  font-size: 0.8rem;
   font-weight: normal;
   line-height: 1;
   outline: none;
@@ -251,12 +282,12 @@ const GuessButton = styled.button`
     color: ${colours.white};
     cursor: not-allowed;
     font-style: normal;
-    opacity: .5;
+    opacity: 0.5;
     text-decoration: line-through;
   }
 
   &.unselectable[disabled] {
-    opacity: .5;
+    opacity: 0.5;
     text-decoration: none;
   }
 
@@ -283,7 +314,5 @@ const Image = styled.img`
 
   ${above.md`
     max-height: 80vh;
-  `}
-
-  ${props => props.greyscale ? 'filter: grayscale(100%);' : ''}
+  `} ${props => (props.greyscale ? 'filter: grayscale(100%);' : '')};
 `

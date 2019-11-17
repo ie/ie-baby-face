@@ -3,14 +3,14 @@ import { createStore as reduxCreateStore } from 'redux'
 const reducer = (state, action) => {
   if (action.type === `REGISTER`) {
     return Object.assign({}, state, {
-      name: action.name
-    });
+      name: action.name,
+    })
   }
 
   if (action.type === `DOCUMENT_SAVE`) {
     return Object.assign({}, state, {
-      documentId: action.documentId
-    });
+      documentId: action.documentId,
+    })
   }
 
   return state

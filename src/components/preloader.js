@@ -8,44 +8,46 @@ import { colours } from '../styles/variables'
 
 class Preloader extends Component {
   constructor() {
-    super();
+    super()
     this.state = {
-      duration: 5.0
-    };
+      duration: 5.0,
+    }
   }
 
   componentDidMount() {
-    this.setState((prevState) => {
+    this.setState(prevState => {
       return { duration: this.props.duration || prevState.duration }
-    });
+    })
   }
 
   render() {
-    const { loaded, loading } = this.props;
-    const { duration } = this.state;
+    const { loaded, loading } = this.props
+    const { duration } = this.state
 
     return (
       <>
-      {loading ? (
-        <PreloaderWrapper className={classNames({ loaded: loaded })}>
-          <PreloaderContainer>
-            <Spinner duration={duration} loaded={loaded}/>
-            <Fill duration={duration} loaded={loaded}/>
-            <Mask duration={duration} loaded={loaded}/>
-          </PreloaderContainer>
-        </PreloaderWrapper>
-      ) : false}
+        {loading ? (
+          <PreloaderWrapper className={classNames({ loaded: loaded })}>
+            <PreloaderContainer>
+              <Spinner duration={duration} loaded={loaded} />
+              <Fill duration={duration} loaded={loaded} />
+              <Mask duration={duration} loaded={loaded} />
+            </PreloaderContainer>
+          </PreloaderWrapper>
+        ) : (
+          false
+        )}
       </>
-    );
+    )
   }
 }
 
-export default Preloader;
+export default Preloader
 
 Preloader.propTypes = {
   loaded: PropTypes.bool.isRequired,
-  loading: PropTypes.bool.isRequired
-};
+  loading: PropTypes.bool.isRequired,
+}
 
 const spinnerAnimation = keyframes`
   0% {
@@ -108,7 +110,7 @@ const PreloaderContainer = styled.div`
       ${colours.black} 50%,
       ${colours.black} 100%
     );
-  `}
+  `};
 `
 
 const Pie = styled.div`
@@ -122,7 +124,7 @@ const Pie = styled.div`
     width: 50%;
     height: 100%;
     transform-origin: 100% 50%;
-  `}
+  `};
 `
 
 const Spinner = styled(Pie)`
@@ -133,7 +135,7 @@ const Spinner = styled(Pie)`
 
   ${above.md`
     border-radius: 100% 0 0 100% / 50% 0 0 50%;
-  `}
+  `};
 `
 
 const Fill = styled(Pie)`
@@ -149,7 +151,7 @@ const Fill = styled(Pie)`
     border-radius: 0 100% 100% 0 / 0 50% 50% 0;
     left: 50%;
     top: auto;
-  `}
+  `};
 `
 
 const Mask = styled.div`
@@ -164,5 +166,5 @@ const Mask = styled.div`
   ${above.md`
     width: 50%;
     height: 100%;
-  `}
+  `};
 `

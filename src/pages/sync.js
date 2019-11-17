@@ -7,11 +7,16 @@ export const query = graphql`
   query ImagesQuery {
     dataJson {
       photos {
-        name,
+        name
         file
       }
     }
-    allFile(filter:{extension:{regex:"/(jpeg|jpg|gif|png)/"},  sourceInstanceName:{ eq:"images"} }) {
+    allFile(
+      filter: {
+        extension: { regex: "/(jpeg|jpg|gif|png)/" }
+        sourceInstanceName: { eq: "images" }
+      }
+    ) {
       edges {
         node {
           childImageSharp {
@@ -23,59 +28,67 @@ export const query = graphql`
       }
     }
   }
-  `
+`
 
 class Sync extends Component {
   constructor() {
-    super();
+    super()
     this.state = {
       synced: [],
       totalSynced: 0,
       syncing: false,
-      isMounted: true
+      isMounted: true,
     }
   }
 
   setStateFromSnapshot(snapshot) {
-    snapshot.forEach((doc) => {
-      this.setState({ synced: [...this.state.synced, doc.data()], totalSynced: this.state.totalSynced + 1 });
-    });
+    snapshot.forEach(doc => {
+      this.setState({
+        synced: [...this.state.synced, doc.data()],
+        totalSynced: this.state.totalSynced + 1,
+      })
+    })
 
-    const files = this.props.data.allFile.edges;
-    const photos = this.props.data.dataJson.photos;
+    const files = this.props.data.allFile.edges
+    const photos = this.props.data.dataJson.photos
 
-    photos.forEach((photo) => {
+    photos.forEach(photo => {
       // Already synced
-      if (!this.state.synced.filter((doc) => photo.name === doc.name).length) {
-        const file = files.filter((f) => {
-          return f.node.childImageSharp.sizes.src.endsWith(photo.file);
-        })[0];
+      if (!this.state.synced.filter(doc => photo.name === doc.name).length) {
+        const file = files.filter(f => {
+          return f.node.childImageSharp.sizes.src.endsWith(photo.file)
+        })[0]
 
         if (file) {
-          const data = file.node.childImageSharp.sizes;
-          fetch(data.src).then((response) => response.blob()).then((blob) => {
-            const reader = new FileReader();
-            reader.readAsDataURL(blob);
-            reader.onloadend = function () {
-              const encodedImage = reader.result;
-              db.collection('photos').add({
-                name: photo.name,
-                photo: encodedImage
-              }).then(() => {
-                this.setState({ totalSynced: this.state.totalSynced + 1 });
-              });
-            }.bind(this);
-          });
+          const data = file.node.childImageSharp.sizes
+          fetch(data.src)
+            .then(response => response.blob())
+            .then(blob => {
+              const reader = new FileReader()
+              reader.readAsDataURL(blob)
+              reader.onloadend = function() {
+                const encodedImage = reader.result
+                db.collection('photos')
+                  .add({
+                    name: photo.name,
+                    photo: encodedImage,
+                  })
+                  .then(() => {
+                    this.setState({ totalSynced: this.state.totalSynced + 1 })
+                  })
+              }.bind(this)
+            })
         }
       }
-    });
+    })
   }
 
   componentDidMount() {
     this.setState({ syncing: true }, () => {
-      db.collection('photos').get()
-        .then((snapshot) => this.setStateFromSnapshot(snapshot))
-    });
+      db.collection('photos')
+        .get()
+        .then(snapshot => this.setStateFromSnapshot(snapshot))
+    })
   }
 
   render() {
@@ -84,16 +97,15 @@ class Sync extends Component {
         <h2>Total Synced: {this.state.totalSynced}</h2>
         <ImageGrid>
           {this.state.synced.map((photo, index) => {
-            return (<Image key={index} src={photo.photo} alt={photo.name} />);
+            return <Image key={index} src={photo.photo} alt={photo.name} />
           })}
         </ImageGrid>
       </Layout>
-    );
+    )
   }
 }
 
 export default Sync
-
 
 const ImageGrid = styled.div`
   display: grid;

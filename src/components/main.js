@@ -3,13 +3,9 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { above } from '../styles/mixins'
 
-const Main = ({ children }) => (
-  <MainContainer>
-    {children}
-  </MainContainer>
-)
+const Main = ({ children }) => <MainContainer>{children}</MainContainer>
 
-export default Main;
+export default Main
 
 const MainContainer = styled.section`
   display: flex;
@@ -19,7 +15,7 @@ const MainContainer = styled.section`
 
   ${above.md`
     flex-direction: row;
-  `}
+  `};
 `
 
 Main.propTypes = {

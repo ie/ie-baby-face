@@ -1,4 +1,4 @@
-import firebase from '@firebase/app';
+import firebase from '@firebase/app'
 import '@firebase/firestore'
 
 const config = {
@@ -7,14 +7,14 @@ const config = {
   databaseURL: 'https://baby-face-2019.firebaseio.com',
   projectId: 'baby-face-2019',
   storageBucket: 'baby-face-2019.appspot.com',
-  messagingSenderId: '414414662276'
-};
+  messagingSenderId: '414414662276',
+}
 
-firebase.initializeApp(config);
+firebase.initializeApp(config)
 
-export const db = firebase.firestore();
+export const db = firebase.firestore()
 
 const settings = {
-  timestampsInSnapshots: true
-};
-db.settings(settings);
+  timestampsInSnapshots: true,
+}
+db.settings(settings)

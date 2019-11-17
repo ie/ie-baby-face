@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import { css } from 'styled-components'
 
 export const media = {
   xxl: 1600,
@@ -6,7 +6,7 @@ export const media = {
   lg: 1200,
   md: 840,
   sm: 600,
-  xs: 360
+  xs: 360,
 }
 
 export const above = Object.keys(media).reduce((accumulator, label) => {

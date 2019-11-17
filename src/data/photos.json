@@ -2,179 +2,115 @@
   "photos": [
     {
       "name": "Kristy Briggs",
-      "file": "01.jpg"
-    },
-    {
-      "name": "Varun Joshi",
-      "file": "02.jpg"
-    },
-    {
-      "name": "Robbie Turner",
-      "file": "03.jpg"
-    },
-    {
-      "name": "Aimi Hino",
-      "file": "04.jpg"
-    },
-    {
-      "name": "Cassie Chorn",
-      "file": "05.jpg"
-    },
-    {
-      "name": "Fletcher Lodwick",
-      "file": "06.jpg"
-    },
-    {
-      "name": "Christian Hagelid",
-      "file": "07.jpg"
-    },
-    {
-      "name": "Jade Deutrom",
-      "file": "08.jpg"
-    },
-    {
-      "name": "Dave Johnson",
-      "file": "09.jpg"
-    },
-    {
-      "name": "Isabelle Jones",
-      "file": "10.jpg"
-    },
-    {
-      "name": "Jared Mericka",
-      "file": "11.jpg"
-    },
-    {
-      "name": "Xian Yang Wong",
-      "file": "12.jpg"
-    },
-    {
-      "name": "Caroline Downs",
-      "file": "13.jpg"
-    },
-    {
-      "name": "Britt Horder",
-      "file": "14.jpg"
-    },
-    {
-      "name": "Charlie Olsson",
-      "file": "15.jpg"
+      "file": "kristy.png"
     },
     {
       "name": "Alex Ure",
-      "file": "16.jpg"
+      "file": "alex.png"
     },
     {
-      "name": "Matilda Rutherford",
-      "file": "17.jpg"
+      "name": "Amy Posthill",
+      "file": "amy.png"
     },
     {
-      "name": "Ruth Hallett",
-      "file": "18.jpg"
+      "name": "Carlotta Criel",
+      "file": "carlotta.png"
     },
     {
-      "name": "Daniel Sterry",
-      "file": "19.jpg"
+      "name": "Cassie Chorn",
+      "file": "cassie.png"
     },
     {
-      "name": "Quincy Mazel",
-      "file": "20.jpg"
+      "name": "Dan Chia",
+      "file": "dan.png"
     },
     {
-      "name": "Shane Handley",
-      "file": "21.jpg"
+      "name": "Dave Cox",
+      "file": "dc.png"
     },
     {
-      "name": "Andi Han",
-      "file": "22.jpg"
+      "name": "Diego Pelaez",
+      "file": "diego.png"
     },
     {
-      "name": "Gwendolyn Silk",
-      "file": "23.jpg"
+      "name": "Gwen Silk",
+      "file": "gwen.png"
     },
     {
-      "name": "Nick Lehrain",
-      "file": "24.jpg"
+      "name": "Hamish Doake",
+      "file": "hamish.png"
     },
     {
-      "name": "Jason Watt",
-      "file": "25.jpg"
+      "name": "Jade Deutrom",
+      "file": "jade.png"
     },
     {
-      "name": "Allannah Rodrigues",
-      "file": "26.jpg"
+      "name": "Jared Mericka",
+      "file": "jared.png"
     },
     {
-      "name": "Marc Goldenfein",
-      "file": "27.jpg"
+      "name": "Kara La'Brooy",
+      "file": "kara.png"
     },
     {
-      "name": "Dave Hodges",
-      "file": "28.jpg"
+      "name": "Kristy Briggs",
+      "file": "kristy.png"
+    },
+    {
+      "name": "Paul Zubrinich",
+      "file": "paul.png"
     },
     {
       "name": "Ruby Bryant",
-      "file": "29.jpg"
+      "file": "ruby.png"
     },
     {
-      "name": "Ally Hancock",
-      "file": "30.jpg"
+      "name": "Sofii Mara",
+      "file": "sof.png"
     },
     {
-      "name": "Travis Kennedy",
-      "file": "31.jpg"
+      "name": "Steve Doak",
+      "file": "steve.png"
     },
     {
-      "name": "Dean Flynn",
-      "file": "32.jpg"
+      "name": "Tim Burch",
+      "file": "tim.png"
     },
     {
-      "name": "Delugia Mesquita",
-      "file": "33.jpg"
+      "name": "Trav Kennedy",
+      "file": "trav.png"
     },
     {
-      "name": "Jeremy Champion",
-      "file": "34.jpg"
+      "name": "Woo Ang",
+      "file": "woo.png"
     },
     {
-      "name": "Adam Walton",
-      "file": "35.jpg"
+      "name": "Nadine Atwaroo-Greene",
+      "file": "nad.png"
     },
     {
-      "name": "Richard Foong",
-      "file": "36.jpg"
+      "name": "Andrew Rollason",
+      "file": "and.png"
     },
     {
-      "name": "Amita Doshi",
-      "file": "37.jpg"
+      "name": "David Johnson",
+      "file": "dj.png"
     },
     {
-      "name": "Brad Pitt",
-      "file": "c2.jpg"
+      "name": "Mark Dsouza",
+      "file": "markd.png"
     },
     {
-      "name": "Angelina Jolie",
-      "file": "c1.jpg"
+      "name": "Matilda Rutherford",
+      "file": "tilly.png"
     },
     {
-      "name": "Kim Kardashian",
-      "file": "c4.jpg"
+      "name": "Robbie Turner",
+      "file": "robbie.png"
     },
     {
-      "name": "Leonardo Dicaprio",
-      "file": "c3.jpg"
-    },
-    {
-      "name": "Kanye West",
-      "file": "c6.jpg"
-    },
-    {
-      "name": "Victoria Beckham",
-      "file": "c7.jpg"
-    },
-    {
-      "name": "George Clooney",
-      "file": "c5.jpg"
+      "name": "Hattie Aspinall",
+      "file": "hattie.png"
     }
   ]
 }

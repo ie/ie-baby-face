@@ -3,12 +3,10 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const Heading = ({ children }) => (
-  <HeadingContainer>
-    {children}
-  </HeadingContainer>
+  <HeadingContainer>{children}</HeadingContainer>
 )
 
-export default Heading;
+export default Heading
 
 const HeadingContainer = styled.h2`
   color: currentColor;
