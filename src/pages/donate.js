@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { db } from '../config/firebase'
 import { connect } from 'react-redux'
 import { navigate } from 'gatsby'
 
@@ -29,7 +28,6 @@ class DonatePage extends Component {
   }
 
   render() {
-    const { name, saveDocumentId } = this.props
     return (
       <Layout>
         <Main>
