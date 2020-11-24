@@ -53,7 +53,7 @@ const AboutPage = () => (
           </g>
         </svg>
       </CloseLink>
-      <DonateLink href="https://mosista.co/babyface-ie" target="_blank">
+      <DonateLink href="https://au.movember.com/donate/details?teamId=2232030" target="_blank">
         Donate
       </DonateLink>
       <PlayLink to="/play">Play</PlayLink>
@@ -66,12 +66,12 @@ const AboutPage = () => (
             <ListItem>
               <span>Send your best baby picture to </span>
               <Obfuscate
-                email="matilda.rutherford@ie.com.au"
+                email="christine.schorn@ie.com.au"
                 headers={{
                   subject: 'Baby Face',
                 }}
               >
-                @Matilda
+                @Christine
               </Obfuscate>
             </ListItem>
             <ListItem>
@@ -85,10 +85,10 @@ const AboutPage = () => (
             Please only enter once and be as generous in your donations as you
             see fair (although a minimum $5 is preferred).
           </Copy>
-           {' '}
+          {' '}
           <Copy>
             The winner with the most correct answers will be announced at All
-            Agency on the 30th November.
+            Hands on the 27th November.
           </Copy>
         </Block>
       </BlackContainer>

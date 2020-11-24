@@ -54,7 +54,7 @@ class DonatePage extends Component {
           </WhiteContainer>
           <BlackContainer>
             {this.state.loaded ? (
-              <DonateLink href="https://mosista.co/babyface-ie" target="_blank">
+              <DonateLink href="https://au.movember.com/donate/details?teamId=2232030" target="_blank">
                 Donate
               </DonateLink>
             ) : (

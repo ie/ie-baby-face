@@ -1,124 +1,64 @@
 {
   "photos": [
     {
-      "name": "Kristy Briggs",
-      "file": "kristy.png"
-    },
-    {
       "name": "Alex Ure",
-      "file": "alex.png"
+      "file": "alex.jpg"
     },
     {
-      "name": "Amy Posthill",
-      "file": "amy.png"
+      "name": "Bianca Pavez",
+      "file": "bianca.jpg"
     },
     {
-      "name": "Carlotta Criel",
-      "file": "carlotta.png"
+      "name": "Carolyn Butcher",
+      "file": "carolyn.jpg"
     },
     {
       "name": "Cassie Chorn",
-      "file": "cassie.png"
+      "file": "cassie.JPG"
+    },
+    {
+      "name": "Charlie Olsson",
+      "file": "charlie.jpeg"
     },
     {
       "name": "Dan Chia",
-      "file": "dan.png"
+      "file": "dan.jpg"
     },
     {
-      "name": "Dave Cox",
-      "file": "dc.png"
+      "name": "Jane Curtaine",
+      "file": "jane.jpg"
     },
     {
-      "name": "Diego Pelaez",
-      "file": "diego.png"
+      "name": "Kerry Allen",
+      "file": "kerry.jpg"
     },
     {
-      "name": "Gwen Silk",
-      "file": "gwen.png"
+      "name": "Mark D'Souza",
+      "file": "mark.jpg"
     },
     {
-      "name": "Hamish Doake",
-      "file": "hamish.png"
+      "name": "Paul Hemsphere",
+      "file": "paul.JPG"
     },
     {
-      "name": "Jade Deutrom",
-      "file": "jade.png"
-    },
-    {
-      "name": "Jared Mericka",
-      "file": "jared.png"
-    },
-    {
-      "name": "Kara La'Brooy",
-      "file": "kara.png"
-    },
-    {
-      "name": "Kristy Briggs",
-      "file": "kristy.png"
-    },
-    {
-      "name": "Paul Zubrinich",
-      "file": "paul.png"
-    },
-    {
-      "name": "Ruby Bryant",
-      "file": "ruby.png"
-    },
-    {
-      "name": "Sofii Mara",
-      "file": "sof.png"
-    },
-    {
-      "name": "Steve Doak",
-      "file": "steve.png"
-    },
-    {
-      "name": "Tim Burch",
-      "file": "tim.png"
-    },
-    {
-      "name": "Trav Kennedy",
-      "file": "trav.png"
-    },
-    {
-      "name": "Woo Ang",
-      "file": "woo.png"
-    },
-    {
-      "name": "Nadine Atwaroo-Greene",
-      "file": "nad.png"
-    },
-    {
-      "name": "Andrew Rollason",
-      "file": "and.png"
-    },
-    {
-      "name": "David Johnson",
-      "file": "dj.png"
-    },
-    {
-      "name": "Mark Dsouza",
-      "file": "markd.png"
-    },
-    {
-      "name": "Matilda Rutherford",
-      "file": "tilly.png"
+      "name": "Quincey Mazel",
+      "file": "quincey.jpg"
     },
     {
       "name": "Robbie Turner",
-      "file": "robbie.png"
+      "file": "robbie.jpg"
     },
     {
-      "name": "Hattie Aspinall",
-      "file": "hattie.png"
+      "name": "Roxanne Fernandes",
+      "file": "roxy.jpg"
     },
     {
-      "name": "Caz Butcher",
-      "file": "cazb.png"
+      "name": "Tim Burch",
+      "file": "tim.jpg"
     },
     {
-      "name": "Adi Kurniawan",
-      "file": "adi.png"
+      "name": "Tommy Jackson",
+      "file": "tommy.jpg"
     }
   ]
 }
