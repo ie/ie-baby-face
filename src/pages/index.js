@@ -23,7 +23,7 @@ class IndexPage extends Component {
       <Layout>
         <Main>
           <AboutLink to="/about">About</AboutLink>
-          <DonateLink href="https://mosista.co/babyface-ie" target="_blank">
+          <DonateLink href="https://au.movember.com/donate/details?teamId=2232030" target="_blank">
             Donate
           </DonateLink>
           <PlayLink to="/play">Play</PlayLink>
@@ -33,7 +33,7 @@ class IndexPage extends Component {
           </WhiteContainer>
           <BlackContainer>
             <Heading>Face</Heading>
-            <SubHeading>19</SubHeading>
+            <SubHeading>20</SubHeading>
           </BlackContainer>
         </Main>
       </Layout>
