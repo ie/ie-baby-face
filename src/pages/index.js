@@ -1,21 +1,20 @@
+import {
+  BaseLink,
+  BlackContainer,
+  WhiteContainer,
+  baseLinkStyles,
+} from '../styles/global'
 import React, { Component } from 'react'
-import styled from 'styled-components'
 
+import Heading from '../components/heading'
 // Components
 import Layout from '../components/layout'
-import Heading from '../components/heading'
 import Main from '../components/main'
-
+import SubHeading from '../components/subheading'
 // CSS
 import { above } from '../styles/mixins'
 import { colours } from '../styles/variables'
-import {
-  baseLinkStyles,
-  BaseLink,
-  WhiteContainer,
-  BlackContainer,
-} from '../styles/global'
-import SubHeading from '../components/subheading'
+import styled from 'styled-components'
 
 class IndexPage extends Component {
   render() {
@@ -33,7 +32,7 @@ class IndexPage extends Component {
           </WhiteContainer>
           <BlackContainer>
             <Heading>Face</Heading>
-            <SubHeading>20</SubHeading>
+            <SubHeading>21</SubHeading>
           </BlackContainer>
         </Main>
       </Layout>
