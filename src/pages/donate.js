@@ -1,22 +1,21 @@
+import {
+  BaseLink,
+  BlackContainer,
+  WhiteContainer,
+  baseLinkStyles,
+} from '../styles/global'
 import React, { Component } from 'react'
-import styled from 'styled-components'
-import { connect } from 'react-redux'
-import { navigate } from 'gatsby'
 
 // Components
 import Layout from '../components/layout'
 import Main from '../components/main'
-import Preloader from '../components/preloader'
 import Moustache from '../components/moustache'
-
+import Preloader from '../components/preloader'
 // CSS
 import { colours } from '../styles/variables'
-import {
-  WhiteContainer,
-  BaseLink,
-  BlackContainer,
-  baseLinkStyles,
-} from '../styles/global'
+import { connect } from 'react-redux'
+import { navigate } from 'gatsby'
+import styled from 'styled-components'
 
 class DonatePage extends Component {
   constructor() {
@@ -32,7 +31,7 @@ class DonatePage extends Component {
       <Layout>
         <Main>
           <Preloader
-            duration="2.0"
+            duration="1.0"
             loading={this.state.loading}
             loaded={this.state.loaded}
           />

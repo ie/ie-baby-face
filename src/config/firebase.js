@@ -1,11 +1,5 @@
-import '@firebase/firestore'
-
-// Import the functions you need from the SDKs you need
+// import '@firebase/firestore';
 import firebase from "@firebase/app";
-
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -27,19 +21,3 @@ const settings = {
   timestampsInSnapshots: true,
 }
 db.settings(settings)
-
-
-// 2020 Settings
-// import firebase from '@firebase/app'
-// import '@firebase/firestore'
-
-// const config = {
-//   apiKey: 'AIzaSyCFNcx3ykOUEAdav1JuHrC1_ftiLTXkGDo',
-//   authDomain: 'baby-face-2020.firebaseapp.com',
-//   databaseURL: 'https://baby-face-2020.firebaseio.com',
-//   projectId: 'baby-face-2020',
-//   storageBucket: 'baby-face-2020.appspot.com',
-//   messagingSenderId: '216945882657',
-// }
-
-// firebase.initializeApp(config)
