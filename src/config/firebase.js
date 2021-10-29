@@ -1,4 +1,5 @@
-// import '@firebase/firestore';
+import '@firebase/firestore';
+
 import firebase from "@firebase/app";
 
 // Your web app's Firebase configuration
