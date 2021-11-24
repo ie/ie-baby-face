@@ -1,64 +1,121 @@
 {
   "photos": [
+
+    {
+      "name": "Adi Kurniawan",
+      "file": "AdiK.jpg"
+    },
     {
       "name": "Alex Ure",
-      "file": "alex.jpg"
+      "file": "AlexU.jpg"
     },
     {
       "name": "Bianca Pavez",
-      "file": "bianca.jpg"
+      "file": "BiancaP.png"
+    },
+    {
+      "name": "Bob",
+      "file": "BobA.jpg"
+    },
+    {
+      "name": "Camilla Holmes",
+      "file": "CamillaH.jpg"
     },
     {
       "name": "Carolyn Butcher",
-      "file": "carolyn.jpg"
+      "file": "CarolynB.jpg"
     },
     {
-      "name": "Cassie Chorn",
-      "file": "cassie.JPG"
+      "name": "Christian Hagelid",
+      "file": "ChristianH.jpg"
     },
     {
-      "name": "Charlie Olsson",
-      "file": "charlie.jpeg"
+      "name": "Ciaran Nolan",
+      "file": "CiaranN.jpg"
+    },
+    {
+      "name": "Damien Szwarc",
+      "file": "DamienS.jpg"
     },
     {
       "name": "Dan Chia",
-      "file": "dan.jpg"
+      "file": "DanC.jpeg"
     },
     {
-      "name": "Jane Curtaine",
-      "file": "jane.jpg"
+      "name": "Ehsan Gazar",
+      "file": "EhsanG.jpg"
     },
     {
-      "name": "Kerry Allen",
-      "file": "kerry.jpg"
+      "name": "Gin Krantz",
+      "file": "GinK.jpg"
     },
     {
-      "name": "Mark D'Souza",
-      "file": "mark.jpg"
+      "name": "Ian Hunt",
+      "file": "IanH.png"
     },
     {
-      "name": "Paul Hemsphere",
-      "file": "paul.JPG"
+      "name": "Ines Gvozdich",
+      "file": "InesG.jpg"
     },
     {
-      "name": "Quincey Mazel",
-      "file": "quincey.jpg"
+      "name": "James Turle",
+      "file": "JamesT.jpg"
+    },
+    {
+      "name": "Jane Curtain",
+      "file": "JaneC.jpg"
+    },
+    {
+      "name": "Jeff Bocala",
+      "file": "JeffB.jpg"
+    },
+    {
+      "name": "Jonathan Macmillan",
+      "file": "JonathanM.jpg"
+    },
+    {
+      "name": "Kalyan Janapati",
+      "file": "KalyanJ.jpg"
+    },
+    {
+      "name": "Kara Labrooy",
+      "file": "KaraL.jpg"
+    },
+    {
+      "name": "Mick McKenna",
+      "file": "MickM.jpg"
+    },
+    {
+      "name": "Naomi Stewart",
+      "file": "NaomiS.jpg"
+    },
+    {
+      "name": "Oliver Gunning",
+      "file": "OliverG.jpg"
+    },
+    {
+      "name": "Paul Hamshere",
+      "file": "PaulH.jpg"
+    },
+    {
+      "name": "Rachel Hibbert",
+      "file": "RachelH.jpg"
+    },
+    {
+      "name": "Rachel Morgan",
+      "file": "RachelM.jpg"
     },
     {
       "name": "Robbie Turner",
-      "file": "robbie.jpg"
+      "file": "RobbieT.jpg"
     },
     {
-      "name": "Roxanne Fernandes",
-      "file": "roxy.jpg"
+      "name": "Summer Ding",
+      "file": "SummerD.jpg"
     },
     {
       "name": "Tim Burch",
-      "file": "tim.jpg"
-    },
-    {
-      "name": "Tommy Jackson",
-      "file": "tommy.jpg"
+      "file": "TimB.jpeg"
     }
   ]
 }
