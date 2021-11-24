@@ -70,7 +70,7 @@ const AboutPage = () => (
                   subject: 'Baby Face',
                 }}
               >
-                @Christine
+                @tim
               </Obfuscate>
             </ListItem>
             <ListItem>
