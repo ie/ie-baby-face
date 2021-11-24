@@ -1,21 +1,20 @@
-import React from 'react'
-import styled from 'styled-components'
-import Obfuscate from 'react-obfuscate'
+import {
+  BaseLink,
+  BlackContainer,
+  WhiteContainer,
+  baseLinkStyles,
+} from '../styles/global'
+import { colours, timings } from '../styles/variables'
 
+import Heading from '../components/heading'
 // Components
 import Layout from '../components/layout'
-import Heading from '../components/heading'
 import Main from '../components/main'
-
+import Obfuscate from 'react-obfuscate'
+import React from 'react'
 // CSS
 import { above } from '../styles/mixins'
-import { colours, timings } from '../styles/variables'
-import {
-  baseLinkStyles,
-  BaseLink,
-  WhiteContainer,
-  BlackContainer,
-} from '../styles/global'
+import styled from 'styled-components'
 
 const AboutPage = () => (
   <Layout>
@@ -66,7 +65,7 @@ const AboutPage = () => (
             <ListItem>
               <span>Send your best baby picture to </span>
               <Obfuscate
-                email="christine.schorn@ie.com.au"
+                email="tim.burchn@ie.com.au"
                 headers={{
                   subject: 'Baby Face',
                 }}
@@ -82,13 +81,11 @@ const AboutPage = () => (
             </ListItem>
           </List>
           <Copy>
-            Please only enter once and be as generous in your donations as you
-            see fair (although a minimum $5 is preferred).
+            Please only enter once and be as generous in your donations as you see fair (although a minimum $5 is preferred).
           </Copy>
           {' '}
           <Copy>
-            The winner with the most correct answers will be announced at All
-            Hands on the 27th November.
+            The winner with the most correct answers will be announced at All Hands on the 4th December.
           </Copy>
         </Block>
       </BlackContainer>
