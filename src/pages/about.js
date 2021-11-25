@@ -85,7 +85,7 @@ const AboutPage = () => (
           </Copy>
           {' '}
           <Copy>
-            The winner with the most correct answers will be announced at All Hands on the 4th December.
+            The winner with the most correct answers will be announced at All Hands on the 3rd December.
           </Copy>
         </Block>
       </BlackContainer>
