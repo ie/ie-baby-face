@@ -159,20 +159,20 @@ class StatsPage extends Component {
                   .sort(this.sortMatches)
                   .map((photo, index) => {
                     return (
-                      <ListItem key={index}>
+                      <ListItem2 key={index}>
                         <ImageContainer>
                           <DataBlock>
                           {photo.name}<br/>
-                          Guesses: {photo.matches}<br/>
+                          {photo.matches} Correct:<br/>
                           <Guessers>
                           {photo.correctGuesses.map((name, index) => { 
-                            return (<Guesser key={index}>{name},&nbsp;</Guesser> ) }
+                            return (<Guesser key={index}>{name}</Guesser> ) }
                           )}
                           </Guessers>
                           </DataBlock>
                           <Image src={photo.photo} />
                         </ImageContainer>
-                      </ListItem>
+                      </ListItem2>
                     )
                   })}
             </List2>
@@ -187,15 +187,16 @@ export default StatsPage
 
 const List = styled.ol`
   overflow: scroll;
-  height: 50vh;
+  height: 25vh;
 `
 
 const ListItem = styled.li``
 
 const List2 = styled.ol`
   overflow: scroll;
-  height: 50vh;
+  height: 65vh;
   list-style: none;
+  width: 90%;
 `
 
 const ListItem2 = styled.li`
