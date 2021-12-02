@@ -155,14 +155,15 @@ class StatsPage extends Component {
             <List>
               {this.state.loaded &&
                 this.state.photos
-                  .filter(guess => guess.matches > 0)
+                  .filter(photo => photo.matches > 0)
                   .sort(this.sortMatches)
-                  .map((guess, index) => {
+                  .map((photo, index) => {
                     return (
                       <ListItem key={index}>
-                        <Image src={guess.photo} /> <br />
-                        Correct Guesses: {guess.matches}
-                        Guessers: <br/> {guess.correctGuesses.map((name, index) => { 
+                        Photo of: {photo.name}
+                        <Image src={photo.photo} /> <br />
+                        Correct Guesses: {photo.matches}
+                        Guessers: <br/> {photo.correctGuesses.map((name, index) => { 
                           return (<Guesser>{name}&nbsp;</Guesser> ) }
                         )}
                       </ListItem>
