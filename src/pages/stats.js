@@ -160,11 +160,11 @@ class StatsPage extends Component {
                   .map((guess, index) => {
                     return (
                       <ListItem key={index}>
-                        <Image src={guess.photo} /> <br/>
-                        Correct Guesses: {guess.matches} <br />
-                        <GuessersContainer>
-                          Guessers: {guess.correctGuesses}
-                        </GuessersContainer>
+                        <Image src={guess.photo} /> <br />
+                        Correct Guesses: {guess.matches}
+                        Guessers: <br/> {guess.correctGuesses.map((name, index) => { 
+                          return (<Guesser>{name}&nbsp;</Guesser> ) }
+                        )}
                       </ListItem>
                     )
                   })}
@@ -192,6 +192,6 @@ const Image = styled.img`
   max-width: 10vw;
   width: auto;
 `
-const GuessersContainer = styled.span`
+const Guesser = styled.span`
   font-size: 8px;
 `
