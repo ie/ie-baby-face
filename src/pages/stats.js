@@ -1,16 +1,15 @@
+// CSS
+import { BlackContainer, WhiteContainer } from '../styles/global'
 import React, { Component } from 'react'
-import { db } from '../config/firebase'
-import styled from 'styled-components'
 
+import Heading from '../components/heading'
 // Components
 import Layout from '../components/layout'
-import Heading from '../components/heading'
 import Main from '../components/main'
-import Preloader from '../components/preloader'
 import Moustache from '../components/moustache'
-
-// CSS
-import { WhiteContainer, BlackContainer } from '../styles/global'
+import Preloader from '../components/preloader'
+import { db } from '../config/firebase'
+import styled from 'styled-components'
 
 class StatsPage extends Component {
   constructor() {
@@ -28,7 +27,7 @@ class StatsPage extends Component {
     snapshot.forEach(doc => {
       this.setState(prevState => {
         return {
-          photos: [...prevState.photos, { id: doc.id, name: doc.data().name }],
+          photos: [...prevState.photos, { id: doc.id, name: doc.data().name, photo: doc.data().photo }],
         }
       })
     })
@@ -96,6 +95,23 @@ class StatsPage extends Component {
     return b.correct - a.correct
   }
 
+  sortMatches(a, b) {
+    return b.matches - a.matches
+  }
+
+  getPhotoMatchData(pic) {
+    const correctMatches = guesses.reduce((data, g) => {
+      const guesser = g.name;
+      const sumCorrect = g.guesses.filter(guess => {
+        return guess.photo === pic.id && guess.name === pic.name;
+      });
+      const matches = data.matches + sumCorrect.length;
+      const sumTotalGuesses = sumCorrect.length > 0 ? [...data.correctGuesses, guesser] : data.correctGuesses;
+      return {matches, correctGuesses: sumTotalGuesses};
+    }, {matches: 0, correctGuesses: []} );
+    return {...pic, ...correctMatches};
+  }
+
   queryGuesses() {
     db.collection('guesses')
       .get()
@@ -137,6 +153,29 @@ class StatsPage extends Component {
                   })}
             </List>
           </BlackContainer>
+          <WhiteContainer>
+            {this.state.loaded ? <Heading>Photo Matches</Heading> : false}
+          </WhiteContainer>
+          <BlackContainer>
+            <List>
+              {this.state.loaded &&
+                this.state.photos
+                  .map(this.getPhotoMatchData)
+                  .filter(guess => guess.matches > 0)
+                  .sort(this.sortMatches)
+                  .map((guess, index) => {
+                    return (
+                      <ListItem key={index}>
+                        <Image src={guess.photo} /> <br/>
+                        Correct Guesses: {guess.matches} <br />
+                        <GuessersContainer>
+                          Guessers: {guess.correctGuesses}
+                        </GuessersContainer>
+                      </ListItem>
+                    )
+                  })}
+            </List>
+          </BlackContainer>
         </Main>
       </Layout>
     )
@@ -150,3 +189,19 @@ const List = styled.ol`
   height: 50vh;
 `
 const ListItem = styled.li``
+
+const Image = styled.img`
+  display: block;
+  height: inherit !important;
+  margin: 0 auto;
+  max-height: 5vh;
+  max-width: 10vw;
+  width: auto;
+
+  ${above.md`
+    max-height: 10vh;
+  `};
+`
+const GuessersContainer = styled.span`
+  font-size: 8px;
+`
