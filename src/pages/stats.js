@@ -100,7 +100,7 @@ class StatsPage extends Component {
   }
 
   getPhotoMatchData(pic) {
-    const correctMatches = guesses.reduce((data, g) => {
+    const correctMatches = this.state.guesses.reduce((data, g) => {
       const guesser = g.name;
       const sumCorrect = g.guesses.filter(guess => {
         return guess.photo === pic.id && guess.name === pic.name;
