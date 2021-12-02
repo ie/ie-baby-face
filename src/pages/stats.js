@@ -44,8 +44,21 @@ class StatsPage extends Component {
         )
       })
 
+      const matchedPhotos = this.state.photos.map(pic => {
+        const correctMatches = this.state.guesses.reduce((data, g) => {
+          const guesser = g.name;
+          const sumCorrect = g.guesses.filter(guess => {
+            return guess.photo === pic.id && guess.name === pic.name;
+          });
+          const matches = data.matches + sumCorrect.length;
+          const sumTotalGuesses = sumCorrect.length > 0 ? [...data.correctGuesses, guesser] : data.correctGuesses;
+          return {matches, correctGuesses: sumTotalGuesses};
+        }, {matches: 0, correctGuesses: []} );
+        return {...pic, ...correctMatches};
+      });
+
       this.setState(prevState => {
-        return { guesses: filteredGuesses, loaded: true, loading: false }
+        return { guesses: filteredGuesses, photos: matchedPhotos, loaded: true, loading: false }
       })
     }
   }
@@ -99,19 +112,6 @@ class StatsPage extends Component {
     return b.matches - a.matches
   }
 
-  getPhotoMatchData(pic) {
-    const correctMatches = this.state.guesses.reduce((data, g) => {
-      const guesser = g.name;
-      const sumCorrect = g.guesses.filter(guess => {
-        return guess.photo === pic.id && guess.name === pic.name;
-      });
-      const matches = data.matches + sumCorrect.length;
-      const sumTotalGuesses = sumCorrect.length > 0 ? [...data.correctGuesses, guesser] : data.correctGuesses;
-      return {matches, correctGuesses: sumTotalGuesses};
-    }, {matches: 0, correctGuesses: []} );
-    return {...pic, ...correctMatches};
-  }
-
   queryGuesses() {
     db.collection('guesses')
       .get()
@@ -152,15 +152,9 @@ class StatsPage extends Component {
                     )
                   })}
             </List>
-          </BlackContainer>
-          <WhiteContainer>
-            {this.state.loaded ? <Heading>Photo Matches</Heading> : false}
-          </WhiteContainer>
-          <BlackContainer>
             <List>
               {this.state.loaded &&
                 this.state.photos
-                  .map(this.getPhotoMatchData)
                   .filter(guess => guess.matches > 0)
                   .sort(this.sortMatches)
                   .map((guess, index) => {
