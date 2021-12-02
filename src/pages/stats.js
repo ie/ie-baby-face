@@ -194,13 +194,9 @@ const Image = styled.img`
   display: block;
   height: inherit !important;
   margin: 0 auto;
-  max-height: 5vh;
+  max-height: 10vh;
   max-width: 10vw;
   width: auto;
-
-  ${above.md`
-    max-height: 10vh;
-  `};
 `
 const GuessersContainer = styled.span`
   font-size: 8px;
