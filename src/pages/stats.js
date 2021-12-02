@@ -152,7 +152,7 @@ class StatsPage extends Component {
                     )
                   })}
             </List>
-            <List>
+            <List2>
               {this.state.loaded &&
                 this.state.photos
                   .filter(photo => photo.matches > 0)
@@ -161,19 +161,21 @@ class StatsPage extends Component {
                     return (
                       <ListItem key={index}>
                         <ImageContainer>
-                          <Image src={photo.photo} />
                           <DataBlock>
-                          Photo of: {photo.name}<br/>
-                          Correct Guesses: {photo.matches}<br/>
-                          Guessers: <br/> {photo.correctGuesses.map((name, index) => { 
-                            return (<Guesser>{name}&nbsp;</Guesser> ) }
+                          {photo.name}<br/>
+                          Guesses: {photo.matches}<br/>
+                          <Guessers>
+                          {photo.correctGuesses.map((name, index) => { 
+                            return (<Guesser key={index}>{name},&nbsp;</Guesser> ) }
                           )}
+                          </Guessers>
                           </DataBlock>
+                          <Image src={photo.photo} />
                         </ImageContainer>
                       </ListItem>
                     )
                   })}
-            </List>
+            </List2>
           </BlackContainer>
         </Main>
       </Layout>
@@ -187,25 +189,44 @@ const List = styled.ol`
   overflow: scroll;
   height: 50vh;
 `
+
 const ListItem = styled.li``
+
+const List2 = styled.ol`
+  overflow: scroll;
+  height: 50vh;
+  list-style: none;
+`
+
+const ListItem2 = styled.li`
+  border-bottom: 1px solid currentColor;
+  margin-bottom: 1em;
+`
 
 const ImageContainer = styled.div`
   display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
 `
 
 const Image = styled.img`
   display: block;
   height: inherit !important;
-  margin: 0 auto;
   max-height: 20vh;
   width: auto;
-  flex-basis: 50%;
 `
-const Guesser = styled.span`
-  font-size: 8px;
-`
-
 
 const DataBlock = styled.div`
   flex: 1 1 auto;
+  margin-right: auto;
+`
+
+const Guessers = styled.div`
+  display: flex;
+  flex-flow: column wrap;
+  max-height: 10vh
+`
+
+const Guesser = styled.span`
+  font-size: 8px;
 `
