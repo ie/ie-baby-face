@@ -160,12 +160,16 @@ class StatsPage extends Component {
                   .map((photo, index) => {
                     return (
                       <ListItem key={index}>
-                        Photo of: {photo.name}
-                        <Image src={photo.photo} /> <br />
-                        Correct Guesses: {photo.matches}
-                        Guessers: <br/> {photo.correctGuesses.map((name, index) => { 
-                          return (<Guesser>{name}&nbsp;</Guesser> ) }
-                        )}
+                        <ImageContainer>
+                          <Image src={photo.photo} />
+                          <DataBlock>
+                          Photo of: {photo.name}<br/>
+                          Correct Guesses: {photo.matches}<br/>
+                          Guessers: <br/> {photo.correctGuesses.map((name, index) => { 
+                            return (<Guesser>{name}&nbsp;</Guesser> ) }
+                          )}
+                          </DataBlock>
+                        </ImageContainer>
                       </ListItem>
                     )
                   })}
@@ -185,14 +189,23 @@ const List = styled.ol`
 `
 const ListItem = styled.li``
 
+const ImageContainer = styled.div`
+  display: flex;
+`
+
 const Image = styled.img`
   display: block;
   height: inherit !important;
   margin: 0 auto;
-  max-height: 10vh;
-  max-width: 10vw;
+  max-height: 20vh;
   width: auto;
+  flex-basis: 50%;
 `
 const Guesser = styled.span`
   font-size: 8px;
+`
+
+
+const DataBlock = styled.div`
+  flex: 1 1 auto;
 `
