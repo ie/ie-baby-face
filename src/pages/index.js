@@ -16,9 +16,14 @@ import { above } from '../styles/mixins'
 import { colours } from '../styles/variables'
 import styled from 'styled-components'
 
+
+
 class IndexPage extends Component {
   render() {
-    const CompEndDate = new Date().toLocaleDateString('en-au').split('/').reverse().join('');
+    const CurrentDate = new Date().toLocaleDateString('en-au').split('/').reverse().join('');
+    const compStartDate = process.env.GATSBY_COMP_START_DATE ? process.env.GATSBY_COMP_START_DATE:new Date().getFullYear().toString()+"1101"
+    const compEndDate = process.env.GATSBY_COMP_END_DATE ? process.env.GATSBY_COMP_END_DATE:new Date().getFullYear().toString()+"1203"
+    console.log(process.env.GATSBY_COMP_START_DATE, process.env.GATSBY_COMP_END_DATE,compStartDate,compEndDate)
 
     return (
       <Layout>
@@ -27,7 +32,8 @@ class IndexPage extends Component {
           <DonateLink href="https://au.movember.com/donate/details?teamId=2232030" target="_blank">
             Donate
           </DonateLink>
-          { Number(CompEndDate) >= 20231203 ? <PlayLink to="/stats">Results</PlayLink> : <PlayLink to="/play">Play</PlayLink>}
+          { Number(CurrentDate) >= Number(compEndDate) ? <PlayLink to="/stats">Results</PlayLink> : 
+            Number(CurrentDate) <= Number(compStartDate) ? <PlayLink to="#">Coming Soon</PlayLink>:<PlayLink to="/play">Play</PlayLink>}
           <WhiteContainer>
             <Heading>Baby</Heading>
             <SubHeading>20</SubHeading>
