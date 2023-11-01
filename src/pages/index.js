@@ -23,7 +23,6 @@ class IndexPage extends Component {
     const CurrentDate = new Date().toLocaleDateString('en-au').split('/').reverse().join('');
     const compStartDate = process.env.GATSBY_COMP_START_DATE ? process.env.GATSBY_COMP_START_DATE:new Date().getFullYear().toString()+"1101"
     const compEndDate = process.env.GATSBY_COMP_END_DATE ? process.env.GATSBY_COMP_END_DATE:new Date().getFullYear().toString()+"1203"
-    console.log(process.env.GATSBY_COMP_START_DATE, process.env.GATSBY_COMP_END_DATE,compStartDate,compEndDate)
 
     return (
       <Layout>
