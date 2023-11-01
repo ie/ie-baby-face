@@ -110,10 +110,8 @@ class StatsPage extends Component {
       .then(snapshot => {
         const guesses = []
         snapshot.forEach(doc => {
-          console.log(doc.data().name)
           guesses.push({ id: doc.id, name: doc.data().name, guesses: [] })
         })
-        console.log(guesses)
         this.setState(prevState => {
           return {
             guesses: [
