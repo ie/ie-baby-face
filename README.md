@@ -29,11 +29,13 @@ To update the BabyFace app one must do the following:
 3. Modify the photos.json with
    - The full name of the participant
    - The file name of the photo of the participant
-4. Finally, edit the date string on `./src/pages/index.js:30` to the date that the competition should end.
+4. Navigate to the `/sync` page via browser to update the database with the photo's. (Only run once or you'll end up with them in twice, can easily delete them in firestore however)
+5. Create a `.env.development` file with values below for start and end dates of comp. Otherwise it should default to run over November of current year
+6. Finally, edit the date string on `./src/pages/index.js:30` so that it matches current year
 
 ## Hosting
 
-The BabyFace site has been hosted Netlify and the steps to setup are quite straighforward.
+The BabyFace site has been hosted Netlify or Vercel and the steps to setup are quite straighforward.
 
 1. Go to Netlify and signup with an account
 2. Select `Add new site` and `Import from existing project`
