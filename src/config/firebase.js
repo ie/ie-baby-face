@@ -1,16 +1,19 @@
-import '@firebase/firestore';
-
-import firebase from "@firebase/app";
+// Import the functions you need from the SDKs you need
+// import firebase, { initializeApp } from "firebase/app";
+import firebase from "firebase/compat/app";
+import "firebase/compat/firestore";
 
 // Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCO9w27NALvv2a28ue61FHEtqMlN94kor8",
-  authDomain: "baby-face-2021.firebaseapp.com",
-  projectId: "baby-face-2021",
-  databaseURL: 'https://baby-face-2021.firebaseio.com',
-  storageBucket: "baby-face-2021.appspot.com",
-  messagingSenderId: "966933873357",
-  appId: "1:966933873357:web:c5d42e903e17e804e35f84"
+  apiKey: "AIzaSyAyna8YDGgklqoXEAoAQzT9mXvSXHkTqrY",
+  authDomain: "baby-face-2023.firebaseapp.com",
+  projectId: "baby-face-2023",
+  storageBucket: "baby-face-2023.appspot.com",
+  databaseURL: 'https://baby-face-2023.firebaseio.com',
+  messagingSenderId: "526380366376",
+  appId: "1:526380366376:web:244c593330b16871ffd31d",
+  measurementId: "G-Q4HMBSR4NF"
 };
 
 // Initialize Firebase

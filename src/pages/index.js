@@ -27,14 +27,14 @@ class IndexPage extends Component {
           <DonateLink href="https://au.movember.com/donate/details?teamId=2232030" target="_blank">
             Donate
           </DonateLink>
-          { Number(CompEndDate) >= 20211203 ? <PlayLink to="/stats">Results</PlayLink> : <PlayLink to="/play">Play</PlayLink>}
+          { Number(CompEndDate) >= 20231203 ? <PlayLink to="/stats">Results</PlayLink> : <PlayLink to="/play">Play</PlayLink>}
           <WhiteContainer>
             <Heading>Baby</Heading>
             <SubHeading>20</SubHeading>
           </WhiteContainer>
           <BlackContainer>
             <Heading>Face</Heading>
-            <SubHeading>21</SubHeading>
+            <SubHeading>23</SubHeading>
           </BlackContainer>
         </Main>
       </Layout>

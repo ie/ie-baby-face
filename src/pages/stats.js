@@ -65,25 +65,17 @@ class StatsPage extends Component {
 
   getGuesses(snapshot) {
     snapshot.forEach(doc => {
-      this.setState(prevState => {
-        return {
-          guesses: [
-            ...prevState.guesses,
-            { id: doc.id, name: doc.data().name, guesses: [] },
-          ],
-        }
-      })
-
       const guess = this.state.guesses.filter(guess => guess.id === doc.id)[0]
 
       doc.ref
         .collection('guesses')
         .get()
         .then(snapshot => {
-          snapshot.forEach(doc => {
-            guess.guesses.push(doc.data())
-          })
-
+          if (guess && guess.guesses) {
+            snapshot.forEach(doc => {
+              guess.guesses.push(doc.data())
+            })
+          }
           // Compare this session's guesses with actual and calculate total
           if (guess) {
             guess.correct = this.state.photos.filter(photo => {
@@ -115,7 +107,22 @@ class StatsPage extends Component {
   queryGuesses() {
     db.collection('guesses')
       .get()
-      .then(snapshot => this.getGuesses(snapshot))
+      .then(snapshot => {
+        const guesses = []
+        snapshot.forEach(doc => {
+          console.log(doc.data().name)
+          guesses.push({ id: doc.id, name: doc.data().name, guesses: [] })
+        })
+        console.log(guesses)
+        this.setState(prevState => {
+          return {
+            guesses: [
+              ...prevState.guesses,
+              ...guesses,
+            ],
+          }
+        },()=>this.getGuesses(snapshot))
+        })
   }
 
   componentDidMount() {
