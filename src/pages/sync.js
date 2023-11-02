@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Layout from '../components/layout'
 import { db } from '../config/firebase'
 import styled from 'styled-components'
+import { graphql } from 'gatsby'
 
 export const query = graphql`
   query ImagesQuery {
@@ -20,8 +21,8 @@ export const query = graphql`
       edges {
         node {
           childImageSharp {
-            sizes(maxWidth: 2000) {
-              ...GatsbyImageSharpSizes
+            fluid(maxWidth:2000) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
@@ -56,11 +57,11 @@ class Sync extends Component {
       // Already synced
       if (!this.state.synced.filter(doc => photo.name === doc.name).length) {
         const file = files.filter(f => {
-          return f.node.childImageSharp.sizes.src.endsWith(photo.file)
+          return f.node.childImageSharp.fluid.src.endsWith(photo.file)
         })[0]
 
         if (file) {
-          const data = file.node.childImageSharp.sizes
+          const data = file.node.childImageSharp.fluid
           fetch(data.src)
             .then(response => response.blob())
             .then(blob => {
