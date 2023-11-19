@@ -2,120 +2,52 @@
   "photos": [
 
     {
-      "name": "Adi Kurniawan",
-      "file": "AdiK.jpg"
-    },
-    {
-      "name": "Alex Ure",
-      "file": "AlexU.jpg"
-    },
-    {
-      "name": "Bianca Pavez",
-      "file": "BiancaP.jpg"
-    },
-    {
-      "name": "Bob",
-      "file": "BobA.jpg"
-    },
-    {
-      "name": "Camilla Holmes",
-      "file": "CamillaH.jpg"
-    },
-    {
-      "name": "Carolyn Butcher",
-      "file": "CarolynB.jpg"
-    },
-    {
-      "name": "Christian Hagelid",
-      "file": "ChristianH.jpg"
-    },
-    {
-      "name": "Ciaran Nolan",
-      "file": "CiaranN.jpg"
-    },
-    {
-      "name": "Damien Szwarc",
-      "file": "DamienS.jpg"
-    },
-    {
-      "name": "Dan Chia",
-      "file": "DanC.jpg"
-    },
-    {
-      "name": "Ehsan Gazar",
-      "file": "EhsanG.jpg"
-    },
-    {
-      "name": "Gin Krantz",
-      "file": "GinK.jpg"
-    },
-    {
-      "name": "Ian Hunt",
-      "file": "IanH.jpg"
-    },
-    {
-      "name": "Ines Gvozdich",
-      "file": "InesG.jpg"
-    },
-    {
-      "name": "James Turle",
-      "file": "JamesT.jpg"
-    },
-    {
-      "name": "Jane Curtain",
-      "file": "JaneC.jpg"
-    },
-    {
-      "name": "Jeff Bocala",
-      "file": "JeffB.jpg"
-    },
-    {
-      "name": "Jonathan Macmillan",
-      "file": "JonathanM.jpg"
-    },
-    {
-      "name": "Kalyan Janapati",
-      "file": "KalyanJ.jpg"
-    },
-    {
-      "name": "Kara Labrooy",
-      "file": "KaraL.jpg"
-    },
-    {
-      "name": "Mick McKenna",
-      "file": "MickM.jpg"
-    },
-    {
-      "name": "Naomi Stewart",
-      "file": "NaomiS.jpg"
-    },
-    {
-      "name": "Oliver Gunning",
-      "file": "OliverG.jpg"
-    },
-    {
-      "name": "Paul Hamshere",
-      "file": "PaulH.jpg"
-    },
-    {
-      "name": "Rachel Hibbert",
-      "file": "RachelH.jpg"
-    },
-    {
-      "name": "Rachel Morgan",
-      "file": "RachelM.jpg"
-    },
-    {
-      "name": "Robbie Turner",
-      "file": "RobbieT.jpg"
-    },
-    {
-      "name": "Summer Ding",
-      "file": "SummerD.jpg"
-    },
-    {
       "name": "Tim Burch",
-      "file": "TimB.jpg"
+      "file": "TimBurch2.jpg"
+    },
+    {
+      "name": "Ali Bennet",
+      "file": "AliBennet.jpg"
+    },
+    {
+      "name": "Jacqueline Lynch",
+      "file": "JacquelineLynch.jpg"
+    },
+    {
+      "name": "Maria Molina",
+      "file": "MariaMolina.jpg"
+    },
+    {
+      "name": "Jason Watt",
+      "file": "JasonWatt.jpg"
+    },
+    {
+      "name":"Paul Hamshere",
+      "file":"PaulHamshere.png"
+    },
+    {
+      "name":"Chloe Smith",
+      "file":"ChloeSmith.jpg"
+    },
+    {
+      "name":"Jeff Liu",
+      "file":"JeffLiu.jpg"
+    },
+    {
+      "name":"Adam McLeod",
+      "file":"AdamMcLeod.jpg"
+    },
+    {
+      "name":"Melanie Sakkeus",
+      "file":"MelanieSakkeus.jpg"
+    },
+    {
+      "name":"Jessie Lyu",
+      "file":"JessieLyu.jpg"
+    },
+    {
+      "name":"Kara La'Brooy",
+      "file":"KaraLaBrooy.jpg"
     }
   ]
 }
