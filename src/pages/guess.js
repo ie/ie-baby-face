@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { db } from '../config/firebase'
+// import { db } from '../config/firebase'
 import { connect } from 'react-redux'
 import { navigate } from 'gatsby'
 import classNames from 'classnames'
@@ -42,30 +42,31 @@ class GuessPage extends Component {
       return navigate('/play')
     }
 
-    db.collection('photos')
-      .get()
-      .then(snapshot => {
-        snapshot.forEach(doc => {
-          this.setState(prevState => ({
-            names: [...prevState.names, doc.data().name],
-            photos: [
-              ...prevState.photos,
-              {
-                id: doc.id,
-                photo: doc.data().photo,
-                guessed: false,
-              },
-            ],
-          }))
-        })
-      })
-      .then(() => {
-        this.setState(prevState => ({
-          loaded: true,
-          names: prevState.names.sort(),
-          photos: this.shuffle(prevState.photos),
-        }))
-      })
+
+    // db.collection('photos')
+    //   .get()
+    //   .then(snapshot => {
+    //     snapshot.forEach(doc => {
+    //       this.setState(prevState => ({
+    //         names: [...prevState.names, doc.data().name],
+    //         photos: [
+    //           ...prevState.photos,
+    //           {
+    //             id: doc.id,
+    //             photo: doc.data().photo,
+    //             guessed: false,
+    //           },
+    //         ],
+    //       }))
+    //     })
+    //   })
+    //   .then(() => {
+    //     this.setState(prevState => ({
+    //       loaded: true,
+    //       names: prevState.names.sort(),
+    //       photos: this.shuffle(prevState.photos),
+    //     }))
+    //   })
   }
 
   hasFinished() {
@@ -113,13 +114,13 @@ class GuessPage extends Component {
       finished: prevState.guesses.length === prevState.photos.length - 1,
     }))
 
-    db.collection('guesses')
-      .doc(this.props.documentId)
-      .collection('guesses')
-      .add(guess)
-      .then(() => {
-        this.next()
-      })
+    // db.collection('guesses')
+    //   .doc(this.props.documentId)
+    //   .collection('guesses')
+    //   .add(guess)
+    //   .then(() => {
+    //     this.next()
+    //   })
   }
 
   isCurrentPhoto(name) {

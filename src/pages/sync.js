@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Layout from '../components/layout'
-import { db } from '../config/firebase'
+// import { db } from '../config/firebase'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 
@@ -69,14 +69,14 @@ class Sync extends Component {
               reader.readAsDataURL(blob)
               reader.onloadend = function() {
                 const encodedImage = reader.result
-                db.collection('photos')
-                  .add({
-                    name: photo.name,
-                    photo: encodedImage,
-                  })
-                  .then(() => {
-                    this.setState({ totalSynced: this.state.totalSynced + 1 })
-                  })
+                // db.collection('photos')
+                //   .add({
+                //     name: photo.name,
+                //     photo: encodedImage,
+                //   })
+                //   .then(() => {
+                //     this.setState({ totalSynced: this.state.totalSynced + 1 })
+                //   })
               }.bind(this)
             })
         }

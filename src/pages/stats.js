@@ -104,30 +104,30 @@ class StatsPage extends Component {
     return b.matches - a.matches
   }
 
-  queryGuesses() {
-    db.collection('guesses')
-      .get()
-      .then(snapshot => {
-        const guesses = []
-        snapshot.forEach(doc => {
-          guesses.push({ id: doc.id, name: doc.data().name, guesses: [] })
-        })
-        this.setState(prevState => {
-          return {
-            guesses: [
-              ...prevState.guesses,
-              ...guesses,
-            ],
-          }
-        },()=>this.getGuesses(snapshot))
-        })
-  }
+  // queryGuesses() {
+  //   db.collection('guesses')
+  //     .get()
+  //     .then(snapshot => {
+  //       const guesses = []
+  //       snapshot.forEach(doc => {
+  //         guesses.push({ id: doc.id, name: doc.data().name, guesses: [] })
+  //       })
+  //       this.setState(prevState => {
+  //         return {
+  //           guesses: [
+  //             ...prevState.guesses,
+  //             ...guesses,
+  //           ],
+  //         }
+  //       },()=>this.getGuesses(snapshot))
+  //       })
+  // }
 
   componentDidMount() {
-    db.collection('photos')
-      .get()
-      .then(snapshot => this.getPhotos(snapshot))
-      .then(() => this.queryGuesses())
+    // db.collection('photos')
+    //   .get()
+    //   .then(snapshot => this.getPhotos(snapshot))
+    //   .then(() => this.queryGuesses())
   }
 
   render() {
