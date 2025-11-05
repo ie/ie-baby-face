@@ -24,7 +24,7 @@ To update the BabyFace app one must do the following:
   2. Once setup Add a web app and use NPM.
   3. Copy the firebaseConfig code and place in the `./src/config/firebase.js`
   4. Create a Firestore database with a similar (or exact name).
-     - Once configured update the `./src/config/firebase.js` with the property `databaserURL: 'https://[name of the database].firebaseio.com'`
+     - Once configured update the `./src/config/firebase.js` with the property `databaseURL: 'https://[name of the database].firebaseio.com'`
 2. Upload new photos of each participant into the images file
 3. Modify the photos.json with
    - The full name of the participant
@@ -33,7 +33,7 @@ To update the BabyFace app one must do the following:
 5. Create a `.env.development` file with values below for start and end dates of comp. Otherwise it should default to run over November of current year
 6. Finally, edit the date string on `./src/pages/index.js:30` so that it matches current year
 
-## Hosting
+<!-- ## Hosting
 
 The BabyFace site has been hosted Netlify or Vercel and the steps to setup are quite straighforward.
 
@@ -54,4 +54,4 @@ The BabyFace site has been hosted Netlify or Vercel and the steps to setup are q
 Each year We can update 
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
--->
+--> -->

@@ -1,53 +1,8 @@
 {
   "photos": [
-
     {
       "name": "Tim Burch",
       "file": "TimBurch2.jpg"
-    },
-    {
-      "name": "Ali Bennet",
-      "file": "AliBennet.jpg"
-    },
-    {
-      "name": "Jacqueline Lynch",
-      "file": "JacquelineLynch.jpg"
-    },
-    {
-      "name": "Maria Molina",
-      "file": "MariaMolina.jpg"
-    },
-    {
-      "name": "Jason Watt",
-      "file": "JasonWatt.jpg"
-    },
-    {
-      "name":"Paul Hamshere",
-      "file":"PaulHamshere.png"
-    },
-    {
-      "name":"Chloe Smith",
-      "file":"ChloeSmith.jpg"
-    },
-    {
-      "name":"Jeff Liu",
-      "file":"JeffLiu.jpg"
-    },
-    {
-      "name":"Adam McLeod",
-      "file":"AdamMcLeod.jpg"
-    },
-    {
-      "name":"Melanie Sakkeus",
-      "file":"MelanieSakkeus.jpg"
-    },
-    {
-      "name":"Jessie Lyu",
-      "file":"JessieLyu.jpg"
-    },
-    {
-      "name":"Kara La'Brooy",
-      "file":"KaraLaBrooy.jpg"
     }
   ]
 }

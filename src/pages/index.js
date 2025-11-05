@@ -21,8 +21,8 @@ import styled from 'styled-components'
 class IndexPage extends Component {
   render() {
     const CurrentDate = new Date().toLocaleDateString('en-au').split('/').reverse().join('');
-    const compStartDate = process.env.GATSBY_COMP_START_DATE ? process.env.GATSBY_COMP_START_DATE:new Date().getFullYear().toString()+"1101"
-    const compEndDate = process.env.GATSBY_COMP_END_DATE ? process.env.GATSBY_COMP_END_DATE:new Date().getFullYear().toString()+"1203"
+    const compStartDate = process.env.GATSBY_COMP_START_DATE ? process.env.GATSBY_COMP_START_DATE:new Date().getFullYear().toString()+"1117"
+    const compEndDate = process.env.GATSBY_COMP_END_DATE ? process.env.GATSBY_COMP_END_DATE:new Date().getFullYear().toString()+"1130"
 
     return (
       <Layout>
@@ -39,7 +39,7 @@ class IndexPage extends Component {
           </WhiteContainer>
           <BlackContainer>
             <Heading>Face</Heading>
-            <SubHeading>23</SubHeading>
+            <SubHeading>25</SubHeading>
           </BlackContainer>
         </Main>
       </Layout>
