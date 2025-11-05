@@ -20,6 +20,13 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
 
+export const db = firebase.firestore();
+
+const settings = {
+  timestampsInSnapshots: true,
+}
+
+db.settings(settings);
 
 // // Import the functions you need from the SDKs you need
 // import { initializeApp } from "firebase/app";
@@ -41,9 +48,4 @@ const app = firebase.initializeApp(firebaseConfig);
 // const app = initializeApp(firebaseConfig);
 
 // export const db = firebase.firestore()
-export const db = getDatabase(app)
-
-const settings = {
-  timestampsInSnapshots: true,
-}
-db.settings(settings)
+// export const db = getDatabase(app)
