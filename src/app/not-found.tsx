@@ -1,6 +1,9 @@
+'use client'
+
 import Main from '@/components/main'
 import { BlackContainer, WhiteContainer } from '@/styles/global'
 import Heading from '@/components/heading'
+import { use } from 'react'
 
 export default function NotFound() {
   return (

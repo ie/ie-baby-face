@@ -18,7 +18,7 @@ type MediaQueries = {
   [K in keyof typeof media]: MediaQueryFunction
 }
 
-export const above = Object.keys(media).reduce((accumulator, label) => {
+export const above: MediaQueries = Object.keys(media).reduce((accumulator, label) => {
   const key = label as keyof typeof media
   accumulator[key] = (
     first: TemplateStringsArray | CSSObject,
@@ -31,7 +31,7 @@ export const above = Object.keys(media).reduce((accumulator, label) => {
   return accumulator
 }, {} as MediaQueries)
 
-export const below = Object.keys(media).reduce((accumulator, label) => {
+export const below: MediaQueries = Object.keys(media).reduce((accumulator, label) => {
   const key = label as keyof typeof media
   accumulator[key] = (
     first: TemplateStringsArray | CSSObject,
