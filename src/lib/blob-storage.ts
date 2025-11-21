@@ -1,11 +1,30 @@
-import { put } from '@vercel/blob'
+import { v2 as cloudinary } from 'cloudinary'
+
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 export async function uploadImage(file: File): Promise<string> {
-  const blob = await put(file.name, file, {
-    access: 'public',
-    addRandomSuffix: true,
+  // Convert File to buffer
+  const bytes = await file.arrayBuffer()
+  const buffer = Buffer.from(bytes)
+  
+  return new Promise((resolve, reject) => {
+    cloudinary.uploader.upload_stream(
+      {
+        folder: 'baby-face',
+        resource_type: 'image',
+      },
+      (error, result) => {
+        if (error) reject(error)
+        else if (result) resolve(result.secure_url)
+        else reject(new Error('Upload failed'))
+      }
+    ).end(buffer)
   })
-  return blob.url
 }
 
 export async function uploadImageFromBase64(
@@ -15,12 +34,19 @@ export async function uploadImageFromBase64(
   // Remove data URL prefix if present
   const base64String = base64Data.replace(/^data:image\/\w+;base64,/, '')
   
-  // Convert base64 to buffer
-  const buffer = Buffer.from(base64String, 'base64')
-  
-  // Create a File-like object
-  const blob = new Blob([buffer])
-  const file = new File([blob], filename, { type: 'image/jpeg' })
-  
-  return uploadImage(file)
+  return new Promise((resolve, reject) => {
+    cloudinary.uploader.upload(
+      `data:image/jpeg;base64,${base64String}`,
+      {
+        folder: 'baby-face',
+        resource_type: 'image',
+        public_id: filename.replace(/\.[^/.]+$/, ''), // Remove extension
+      },
+      (error, result) => {
+        if (error) reject(error)
+        else if (result) resolve(result.secure_url)
+        else reject(new Error('Upload failed'))
+      }
+    )
+  })
 }

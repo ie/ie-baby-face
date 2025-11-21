@@ -33,7 +33,7 @@ See [MIGRATION_README.md](./MIGRATION_README.md) for complete setup instructions
 
 - **Framework:** Next.js 14 (App Router)
 - **Database:** PostgreSQL + Prisma
-- **Storage:** Vercel Blob
+- **Storage:** Cloudinary
 - **Styling:** Styled Components
 - **Language:** TypeScript
 

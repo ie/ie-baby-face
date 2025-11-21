@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { put } from '@vercel/blob'
+import { uploadImageFromBase64 } from '@/lib/blob-storage'
 
 export async function POST(request: NextRequest) {
   try {
@@ -13,21 +13,12 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Remove data URL prefix if present
-    const base64String = data.replace(/^data:image\/\w+;base64,/, '')
-    
-    // Convert base64 to buffer
-    const buffer = Buffer.from(base64String, 'base64')
-    
-    // Upload to Vercel Blob Storage
-    const blob = await put(filename, buffer, {
-      access: 'public',
-      addRandomSuffix: true,
-    })
+    // Upload to Cloudinary
+    const url = await uploadImageFromBase64(data, filename)
 
-    return NextResponse.json({ url: blob.url }, { status: 200 })
+    return NextResponse.json({ url }, { status: 200 })
   } catch (error) {
-    console.error('Error uploading to blob storage:', error)
+    console.error('Error uploading to Cloudinary:', error)
     return NextResponse.json(
       { error: 'Failed to upload file' },
       { status: 500 }
