@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-// import { db } from '../config/firebase'
+import { db } from '../config/firebase'
 import { connect } from 'react-redux'
 import { navigate } from 'gatsby'
 
@@ -23,6 +23,7 @@ class PlayPage extends Component {
       loading: false,
     }
   }
+
   componentDidMount() {
     this.nameInput.focus()
   }
@@ -34,14 +35,14 @@ class PlayPage extends Component {
 
     return;
 
-    // db.collection('guesses')
-    //   .add({
-    //     name: this.props.name,
-    //   })
-    //   .then(docRef => {
-    //     callback(docRef.id)
-    //     navigate('/donate')
-    //   })
+    db.collection('guesses')
+      .add({
+        name: this.props.name,
+      })
+      .then(docRef => {
+        callback(docRef.id)
+        navigate('/donate')
+      })
   }
 
   render() {

@@ -69,14 +69,14 @@ class Sync extends Component {
               reader.readAsDataURL(blob)
               reader.onloadend = function() {
                 const encodedImage = reader.result
-                // db.collection('photos')
-                //   .add({
-                //     name: photo.name,
-                //     photo: encodedImage,
-                //   })
-                //   .then(() => {
-                //     this.setState({ totalSynced: this.state.totalSynced + 1 })
-                //   })
+                db.collection('photos')
+                  .add({
+                    name: photo.name,
+                    photo: encodedImage,
+                  })
+                  .then(() => {
+                    this.setState({ totalSynced: this.state.totalSynced + 1 })
+                  })
               }.bind(this)
             })
         }

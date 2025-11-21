@@ -1,52 +1,46 @@
 {
   "name": "ie-baby-face",
   "description": "Movember Baby Face Competition",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": "David Johnson <david.johnson@ie.com.au>",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx}\"",
+    "postinstall": "prisma generate"
+  },
   "dependencies": {
-    "@firebase/app": "^0.9.22",
-    "babel-plugin-styled-components": "^2.1.4",
+    "@prisma/client": "^5.22.0",
+    "@vercel/blob": "^0.24.1",
     "classnames": "^2.3.2",
-    "firebase": "^10.5.2",
-    "gatsby": "^5.12.9",
-    "gatsby-image": "^3.11.0",
-    "gatsby-plugin-google-analytics": "^5.12.0",
-    "gatsby-plugin-manifest": "5.12.3",
-    "gatsby-plugin-netlify": "^5.1.1",
-    "gatsby-plugin-offline": "^6.12.3",
-    "gatsby-plugin-react-helmet": "^6.12.0",
-    "gatsby-plugin-sharp": "5.12.3",
-    "gatsby-plugin-sitemap": "^6.12.3",
-    "gatsby-plugin-styled-components": "^6.12.0",
-    "gatsby-source-filesystem": "^5.12.1",
-    "gatsby-transformer-json": "^5.12.0",
-    "gatsby-transformer-sharp": "^5.12.3",
-    "object-hash": "^3.0.0",
+    "next": "^14.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-firebase-file-uploader": "^2.4.4",
-    "react-helmet": "^6.1.0",
     "react-lazyload": "^3.2.0",
     "react-obfuscate": "^3.6.9",
-    "react-redux": "^8.1.3",
-    "react-transition-group": "^4.4.5",
     "styled-components": "^6.1.0"
   },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@types/react-lazyload": "^3.2.3",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.0",
+    "prettier": "^3.0.3",
+    "prisma": "^5.22.0",
+    "typescript": "^5.3.0"
+  },
   "keywords": [
-    "gatsby"
+    "nextjs",
+    "baby-face",
+    "game"
   ],
   "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"src/**/*.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "devDependencies": {
-    "prettier": "^3.0.3"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/ie/ie-baby-face"
   }
 }

@@ -1,8 +1,9 @@
-import { createGlobalStyle } from 'styled-components'
+'use client'
+
+import { createGlobalStyle, css } from 'styled-components'
+import styled from 'styled-components'
 import { above } from './mixins'
 import { colours, fonts, timings, spacing, typography } from './variables'
-import { Link } from 'gatsby'
-import styled, { css } from 'styled-components'
 import fontFiles from './fonts'
 
 export const GlobalStyle = createGlobalStyle`
@@ -23,15 +24,11 @@ export const GlobalStyle = createGlobalStyle`
       font-family: 'Gotham';
       src: url('Gotham-BoldItalic.eot');
       src: local('Gotham Bold Italic'), local('Gotham-BoldItalic'),
-          url('${
-            fontFiles.GothamBoldItalicEOT
-          }?#iefix') format('embedded-opentype'),
+          url('${fontFiles.GothamBoldItalicEOT}?#iefix') format('embedded-opentype'),
           url('${fontFiles.GothamBoldItalicWOFF2}') format('woff2'),
           url('${fontFiles.GothamBoldItalicWOFF}') format('woff'),
           url('${fontFiles.GothamBoldItalicTTF}') format('truetype'),
-          url('${
-            fontFiles.GothamBoldItalicSVG
-          }#Gotham-BoldItalic') format('svg');
+          url('${fontFiles.GothamBoldItalicSVG}#Gotham-BoldItalic') format('svg');
       font-weight: bold;
       font-style: italic;
   }
@@ -40,15 +37,11 @@ export const GlobalStyle = createGlobalStyle`
       font-family: 'Gotham Book';
       src: url('Gotham-BookItalic.eot');
       src: local('Gotham Book Italic'), local('Gotham-BookItalic'),
-          url('${
-            fontFiles.GothamBookItalicEOT
-          }?#iefix') format('embedded-opentype'),
+          url('${fontFiles.GothamBookItalicEOT}?#iefix') format('embedded-opentype'),
           url('${fontFiles.GothamBookItalicWOFF2}') format('woff2'),
           url('${fontFiles.GothamBookItalicWOFF}') format('woff'),
           url('${fontFiles.GothamBookItalicTTF}') format('truetype'),
-          url('${
-            fontFiles.GothamBookItalicSVG
-          }#Gotham-BookItalic') format('svg');
+          url('${fontFiles.GothamBookItalicSVG}#Gotham-BookItalic') format('svg');
       font-weight: normal;
       font-style: italic;
   }
@@ -119,10 +112,6 @@ export const baseLinkStyles = css`
   ${above.md`
     font-size: 2.125rem;
   `};
-`
-
-export const BaseLink = styled(Link)`
-  ${baseLinkStyles};
 `
 
 export const BaseContainer = styled.section`
