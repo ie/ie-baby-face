@@ -1,25 +1,18 @@
-import {
-  BaseLink,
-  BlackContainer,
-  WhiteContainer,
-  baseLinkStyles,
-} from '../styles/global'
-import { colours, timings } from '../styles/variables'
+'use client'
 
-import Heading from '../components/heading'
-// Components
-import Layout from '../components/layout'
-import Main from '../components/main'
-import Obfuscate from 'react-obfuscate'
-import React from 'react'
-// CSS
-import { above } from '../styles/mixins'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
+import Obfuscate from 'react-obfuscate';
+import { baseLinkStyles, BlackContainer, WhiteContainer } from '@/styles/global';
+import { colours, timings } from '@/styles/variables';
+import { above } from '@/styles/mixins';
+import Heading from '@/components/heading';
+import Main from '@/components/main';
 
-const AboutPage = () => (
-  <Layout>
+export default function AboutPage() {
+  return (
     <Main>
-      <CloseLink to="/">
+      <CloseLink href="/">
         <svg
           width="56px"
           height="56px"
@@ -52,10 +45,14 @@ const AboutPage = () => (
           </g>
         </svg>
       </CloseLink>
-      <DonateLink href="https://au.movember.com/donate/details?teamId=2232030" target="_blank">
+      <DonateLink 
+        href="https://au.movember.com/donate/details?teamId=2232030" 
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Donate
       </DonateLink>
-      <PlayLink to="/play">Play</PlayLink>
+      <PlayLink href="/play">Play</PlayLink>
       <WhiteContainer>
         <Heading>About</Heading>
       </WhiteContainer>
@@ -65,7 +62,7 @@ const AboutPage = () => (
             <ListItem>
               <span>Send your best baby picture to </span>
               <Obfuscate
-                email="tim.burchn@ie.com.au"
+                email="tim.burch@ie.com.au"
                 headers={{
                   subject: 'Baby Face',
                 }}
@@ -90,12 +87,11 @@ const AboutPage = () => (
         </Block>
       </BlackContainer>
     </Main>
-  </Layout>
-)
+  )
+}
 
-export default AboutPage
-
-const CloseLink = styled(BaseLink)`
+const CloseLink = styled.a`
+  ${baseLinkStyles}
   right: 0;
   top: 0;
   transition: transform ${timings.md}s ease-in-out;
@@ -107,13 +103,16 @@ const CloseLink = styled(BaseLink)`
 
   ${above.md`
     filter: invert(100%);
-  `} &:hover {
+  `}
+  
+  &:hover {
     transform: scale(1.1);
   }
 `
 
 const DonateLink = styled.a`
-  ${baseLinkStyles} bottom: 0;
+  ${baseLinkStyles}
+  bottom: 0;
   color: ${colours.white};
   left: 0;
 
@@ -122,10 +121,10 @@ const DonateLink = styled.a`
   `};
 `
 
-const PlayLink = styled(BaseLink)`
+const PlayLink = styled.a`
+  ${baseLinkStyles}
   bottom: 0;
   color: ${colours.white};
-
   right: 0;
 `
 
