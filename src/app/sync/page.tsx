@@ -104,7 +104,7 @@ export default function SyncPage() {
         <Content>
           <Instructions>
             <h3>Upload Baby Photos</h3>
-            <p>Select photos to upload. Filenames should be the person&apos;s name (e.g., john-doe.jpg).</p>
+            <p>Select photos to upload. Filenames should be the person&apos;s name (e.g., john-doe.jpg or john-doe.png).</p>
           </Instructions>
           
           <Form onSubmit={handleUpload}>

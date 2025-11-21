@@ -7,7 +7,7 @@ Movember Baby Face Competition - Migrated from Gatsby + Firebase to Next.js + Pr
 - **Framework:** Next.js 14 with App Router
 - **Language:** TypeScript
 - **Database:** PostgreSQL with Prisma ORM
-- **Storage:** Vercel Blob Storage
+- **Storage:** Cloudinary
 - **Styling:** Styled Components
 - **Deployment:** Vercel
 
@@ -15,7 +15,7 @@ Movember Baby Face Competition - Migrated from Gatsby + Firebase to Next.js + Pr
 
 - Node.js 18+ and npm
 - PostgreSQL database (local or hosted)
-- Vercel account (for Blob Storage)
+- Cloudinary account (for image storage)
 
 ## 🛠️ Setup Instructions
 
@@ -54,13 +54,14 @@ To view and manage your database:
 npx prisma studio
 ```
 
-### 4. Vercel Blob Storage
+### 4. Cloudinary Setup
 
-1. Create a Vercel account if you don't have one
-2. Install Vercel CLI: `npm i -g vercel`
-3. Link your project: `vercel link`
-4. Get your Blob storage token: `vercel env pull`
-5. Add `BLOB_READ_WRITE_TOKEN` to your `.env` file
+1. Create a Cloudinary account at [cloudinary.com](https://cloudinary.com)
+2. Get your credentials from the dashboard:
+   - Cloud Name
+   - API Key
+   - API Secret
+3. Add these credentials to your `.env` file
 
 ### 5. Environment Variables
 
@@ -70,8 +71,10 @@ Configure all required environment variables in `.env`:
 # Database
 DATABASE_URL="postgresql://username:password@localhost:5432/baby_face"
 
-# Vercel Blob Storage
-BLOB_READ_WRITE_TOKEN="your_token_here"
+# Cloudinary
+CLOUDINARY_CLOUD_NAME="your_cloud_name"
+CLOUDINARY_API_KEY="your_api_key"
+CLOUDINARY_API_SECRET="your_api_secret"
 
 # Competition Dates (format: YYYYMMDD)
 NEXT_PUBLIC_COMPETITION_START="20251117"
@@ -135,7 +138,7 @@ prisma/
 1. **Setup Phase** (Admin):
    - Navigate to `/sync`
    - Upload employee baby photos
-   - Photos are stored in Vercel Blob Storage and URLs in database
+   - Photos are stored in Cloudinary and URLs in database
 
 2. **Player Phase**:
    - Visit home page
@@ -156,7 +159,7 @@ prisma/
 1. **Framework:** Gatsby → Next.js 14 App Router
 2. **Database:** Firebase Firestore → PostgreSQL with Prisma
 3. **State:** Redux → React Context
-4. **Images:** Base64 in database → Vercel Blob Storage URLs
+4. **Images:** Base64 in database → Cloudinary URLs
 5. **Routing:** Gatsby Links → Next.js Links
 6. **Data Fetching:** GraphQL → API Routes + Prisma
 
@@ -210,8 +213,9 @@ model Guess {
 Vercel will automatically:
 - Build the Next.js application
 - Set up PostgreSQL database (with Vercel Postgres addon)
-- Configure Blob Storage
 - Deploy to production
+
+Don't forget to add your Cloudinary credentials to Vercel environment variables.
 
 ### Manual Deployment
 
@@ -257,9 +261,10 @@ npx prisma migrate reset
 
 ### Image Upload Fails
 
-- Ensure `BLOB_READ_WRITE_TOKEN` is set correctly
-- Check Vercel Blob Storage quota
-- Verify image file sizes are under limits
+- Ensure Cloudinary credentials are set correctly
+- Check Cloudinary usage quota and plan limits
+- Verify image file sizes are under limits (10MB default)
+- Check that `folder: 'baby-face'` exists or is created automatically
 
 ### TypeScript Errors
 
